@@ -1,5 +1,6 @@
+#!Python3
+__Author__ = 'Kattstof'
 import imdb
-import pprint
 from colorama import Fore, init
 init(convert=True)
 ia = imdb.IMDb()
@@ -10,8 +11,7 @@ print(Fore.YELLOW + """
 | | | | | | | (_| | |_) | \__ \ (__| | | (_| | |_) | |_) |  __/ |
 |_|_| |_| |_|\__,_|_.__/  |___/\___|_|  \__,_| .__/| .__/ \___|_|
                                              | |   | |
-                                             |_|   |_|
-""")
+                                             |_|   |_|""")
 print('[1] Trivia')
 print('[2] Runtime')
 print('[3] Rating')
@@ -20,6 +20,7 @@ print('[5] Cast')
 print('[6] Top 250')
 print('[7] Box Office')
 print('[8] Plot')
+print('[9] Release Date')
 print('[0] Testing')
 main = input('Please enter choice: ')
 if main == '1':
@@ -70,12 +71,6 @@ if main == '7':
     ia.update(movie)
     boxoffice = movie['box office']
     print(boxoffice)
-if main =='0':
-    search = input('What movie?: ')
-    s_result = ia.search_movie(search)
-    movie = s_result[0]
-    ia.update(movie)
-    print(movie.infoset2keys)
 if main == '8':
     search = input('What movie?: ')
     s_result = ia.search_movie(search)
@@ -83,3 +78,10 @@ if main == '8':
     ia.update(movie)
     plot = movie['plot']
     print(plot)
+if main =='9':
+    search = input('What movie?: ')
+    s_result = ia.search_movie(search)
+    movie = s_result[0]
+    ia.update(movie)
+    release = movie['original air date']
+    print(movie, 'Was released on: ',release)
