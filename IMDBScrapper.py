@@ -22,7 +22,7 @@ while True:
     print('[7] Box Office')
     print('[8] Plot')
     print('[9] Release Date')
-    print('[0] quit')
+    print('[0] Exit')
     main = input('Please enter choice: ')
     if main == '1':
         search = input('What movie?: ')
