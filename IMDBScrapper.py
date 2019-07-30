@@ -22,7 +22,8 @@ while True:
     print('[7] Box Office')
     print('[8] Plot')
     print('[9] Release Date')
-    print('[0] Exit')
+    print('[10] Goofs')
+    print('[0] quit')
     main = input('Please enter choice: ')
     if main == '1':
         search = input('What movie?: ')
@@ -96,6 +97,16 @@ while True:
         release = movie['original air date']
         print(movie, 'Was released on: ',release)
         input("Press Enter To Go Back To Main Menu...")
+    if main == '10':
+        search = input('What movie?: ')
+        s_result = ia.search_movie(search)
+        movie = s_result[0]
+        ia.update(movie, 'goofs')
+        goof = (movie['goofs'])
+        for item in goof:
+            print('\n', item['text'])
+        print('')
+        input('Press enter to go back to main menu: ') 
     if main == '0':
         print('Exiting...')
         quit()
