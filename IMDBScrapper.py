@@ -23,7 +23,7 @@ while True:
     print('[8] Plot')
     print('[9] Release Date')
     print('[10] Goofs')
-    print('[0] quit')
+    print('[0] Exit')
     main = input('Please enter choice: ')
     if main == '1':
         search = input('What movie?: ')
@@ -103,8 +103,8 @@ while True:
         movie = s_result[0]
         ia.update(movie, 'goofs')
         goof = (movie['goofs'])
-        for item in goof:
-            print('\n', item['text'])
+        for index, value in enumerate(goof, 1):
+            print("{}. {}".format(index, value['text'] + '\n'))
         print('')
         input('Press enter to go back to main menu: ') 
     if main == '0':
