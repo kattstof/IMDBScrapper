@@ -2,6 +2,8 @@
 __Author__ = 'Kattstof'
 import imdb
 from colorama import Fore, init
+
+
 while True:
     init(convert=True)
     ia = imdb.IMDb()
@@ -25,34 +27,25 @@ while True:
     print('[10] Goofs')
     print('[0] Exit')
     main = input('Please enter choice: ')
+    search = input('What movie?: ')
+    s_result = ia.search_movie(search)
+    movie = s_result[0]
     if main == '1':
-        search = input('What movie?: ')
-        s_result = ia.search_movie(search)
-        movie = s_result[0]
         ia.update(movie, 'trivia')
         trivia = (movie['trivia'])
         for index, value in enumerate(trivia, 1):
             print("{}. {}".format(index, value + '\n'))
         input("Press Enter To Go Back To Main Menu... ")
     if main == '2':
-        search = input('What movie?: ')
-        s_result = ia.search_movie(search)
-        movie = s_result[0]
         ia.update(movie)
         run = movie['runtime']
         print(movie['runtime'], 'Minutes')
         input("Press Enter To Go Back To Main Menu...")
     if main == '3':
-        search = input('What Movie?')
-        s_result = ia.search_movie(search)
-        movie = s_result[0]
         ia.update(movie)
         print(movie['rating'], '/10')
         input("Press Enter To Go Back To Main Menu...")
     if main == '4':
-        search = input('What movie?: ')
-        s_result = ia.search_movie(search)
-        movie = s_result[0]
         ia.update(movie)
         director = movie['director']
         for person in director:
@@ -60,9 +53,6 @@ while True:
         input("Press Enter To Go Back To Main Menu...")
         
     if main == '5':
-        search = input('What movie?: ')
-        s_result = ia.search_movie(search)
-        movie = s_result[0]
         ia.update(movie)
         cast = movie['cast']
         for person in cast:
@@ -74,33 +64,21 @@ while True:
             print(item['title'])
         input("Press Enter To Go Back To Main Menu...")
     if main == '7':
-        search = input('What movie?: ')
-        s_result = ia.search_movie(search)
-        movie = s_result[0]
         ia.update(movie)
         boxoffice = movie['box office']
         print(boxoffice)
         input("Press Enter To Go Back To Main Menu...")
     if main == '8':
-        search = input('What movie?: ')
-        s_result = ia.search_movie(search)
-        movie = s_result[0]
         ia.update(movie)
         plot = movie['plot']
         print(plot)
         input("Press Enter To Go Back To Main Menu...")
     if main =='9':
-        search = input('What movie?: ')
-        s_result = ia.search_movie(search)
-        movie = s_result[0]
         ia.update(movie)
         release = movie['original air date']
         print(movie, 'Was released on: ',release)
         input("Press Enter To Go Back To Main Menu...")
     if main == '10':
-        search = input('What movie?: ')
-        s_result = ia.search_movie(search)
-        movie = s_result[0]
         ia.update(movie, 'goofs')
         goof = (movie['goofs'])
         for index, value in enumerate(goof, 1):
